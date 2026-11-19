@@ -28,3 +28,26 @@ soup = BeautifulSoup(htmlcontent,'html.parser')
 #title of the website page
 title = soup.title
 print(type(title.string))
+
+#finding all the paragraph from the page
+print(soup.find('p')['class']) #print all the class of that paragarph
+paragraph = soup.find_all('p')
+print(paragraph)
+
+#find all the anchor tags from the page
+anchor = soup.find_all('a')
+print(anchor)
+
+#find all the elements with class lead
+print(soup.find_all('p',class_="nav"))
+
+
+#get all the text fromt the tags/soup
+print(soup.find('p').get_text())
+
+
+#get all the links from the anchor tag
+all_links = set()
+for link in anchor:
+    if(link != '#'):
+        set.add(link.get('herf'))
